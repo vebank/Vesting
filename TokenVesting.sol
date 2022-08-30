@@ -101,7 +101,7 @@ abstract contract TokenVesting is Ownable {
   // @param _amount Amount of token belongs to this beneficiary
   function addBeneficiary(address _beneficiary, uint256 _amount) public onlyOwner {
     require(_beneficiary != address(0), "zero-address");
-    // Based on ERC20 standard, to transfer funds to this contract,
+    // Based on VIP180 standard, to transfer funds to this contract,
     // the owner must first call approve() to allow to transfer token to this contract.
     require(VBToken.transferFrom(_msgSender(), address(this), _amount), "cannot-transfer-token-to-this-contract");
 
